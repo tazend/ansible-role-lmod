@@ -1,0 +1,12 @@
+---
+
+- name: include os dependent variables
+  ansible.builtin.include_vars: >
+    {{ __lmod_os_distro }}.yml
+
+- name: Define lmod_os_repos.
+  ansible.builtin.set_fact:
+    lmod_os_repos: '{{ __lmod_os_repos | list }}'
+  when: ansible_os_family == 'RedHat' and lmod_os_repos is not defined
+
+...

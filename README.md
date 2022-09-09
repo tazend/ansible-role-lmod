@@ -187,6 +187,21 @@ lmod_admin_messages:
     message: We are having more issues.
 ```
 
+### Specify Custom repositories (RedHat)
+
+```
+lmod_os_repos:
+    - epel
+    - ...
+```
+
+With this variable you can explicitly define a list of repositories which will be
+enabled during installation to get the necessary dependencies.
+
+Since this role depends on [geerlingguy.repo-epel][repo-epel], it is possible that
+you have configured it to be disabled by default on your host.
+You can use this variable to one-time enable it explicitly for this matter.
+
 Dependencies
 ------------
 

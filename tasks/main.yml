@@ -1,8 +1,7 @@
 ---
 
-- name: include os dependent variables
-  ansible.builtin.include_vars: >
-    {{ __lmod_os_distro }}.yml
+- name: include variables
+  include_tasks: variables.yml
 
 - name: install dependencies
   include_tasks: 'deps-{{ ansible_os_family | lower }}.yml'
